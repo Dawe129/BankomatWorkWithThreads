@@ -1,28 +1,32 @@
-# Projekt: Bankomaty s VIP prioritou
+# Projekt: Bankovní operace s VIP prioritizací
 
-**Autor:** Jan Novák  
+**Autor:** David Pivoňka  
 **Datum:** 25. 11. 2025
 
-## Co projekt dělá
 
-Program simuluje provoz několika bankomatů, kde jsou zákazníci odbavováni podle priority – VIP klienti mají přiřazenou přednost. Projekt ukazuje práci s více vlákny, prioritní frontou a semafory.
+## Co projekt dělá
+Program simuluje reálný provoz u bankomatů: uživatelé zadávají požadavky na výběr, vklad nebo kontrolu zůstatku ke svým bankovním účtům. Tyto požadavky jsou odbavovány souběžně pomocí více bankomatů (vláken), přičemž požadavky VIP klientů mají při obsluze vždy přednost.
+
 
 ## Instalace a spuštění
+- Vyžaduje **Python 3.10+**  
+- Všechny použité knihovny jsou součástí standardní instalace Pythonu.  
+- Spusť v terminálu příkaz:  
+python UsingBankomat.py
 
-- Požaduje Python 3.10+  
-- Spusť: `python UsingBankomat.py`  
-- Všechny knihovny jsou součástí Pythonu.
 
 ## Základní funkce
-- Paralelní obsluha více zákazníků
-- VIP priorita ve frontě
-- Výstup do konzole
+- Paralelní (souběžné) odbavení více požadavků na bankomaty.
+- VIP požadavky jsou obslouženy vždy přednostně.
+- Každý požadavek může být: **výběr**, **vklad**, nebo **zůstatek** na účtu.
+- Výsledky operací jsou jasně a přehledně vypsány do konzole.
+
 
 ## Příklad výstupu
-VIP Zákazník 2 čeká ve frontě.
-Zákazník 1 čeká ve frontě.
-VIP Zákazník 2 právě používá bankomat.
-
-## Odkaz na dokumentaci
-Pro podrobný popis funkcí, architektury, konfigurace a testování viz soubor `dokumentace.pdf`.
-
+Požadavek 1: WITHDRAW 1500
+Zadán do fronty.
+================================================
+VIP Požadavek 2 | účet 2 | Akce: DEPOSIT
+Vklad: 3000 Kč
+Nový zůstatek: 15000 Kč
+===============================================
