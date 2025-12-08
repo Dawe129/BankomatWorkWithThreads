@@ -14,16 +14,17 @@ def main():
     semaphore = multiprocessing.Semaphore(3)
 
     accounts = accounts_from_data(base_data, manager)
+
     suspicious_limit = 7000
 
     tickets = [
-        Ticket(1, False, accounts[0], "withdraw", 1500),
-        Ticket(2, True,  accounts[1], "deposit", 3000),
-        Ticket(3, False, accounts[2], "balance", None),
-        Ticket(4, True,  accounts[1], "withdraw", 8000),
-        Ticket(5, False, accounts[0], "deposit", 2000),
-        Ticket(6, True,  accounts[3], "withdraw", 9500),
-        Ticket(7, True,  accounts[1], "transfer", 6000, target_account=accounts[4]),
+        Ticket(1, False, 1, "withdraw", 1500),
+        Ticket(2, True,  2, "deposit", 3000),
+        Ticket(3, False, 3, "balance", None),
+        Ticket(4, True,  2, "withdraw", 8000),
+        Ticket(5, False, 1, "deposit", 2000),
+        Ticket(6, True,  4, "withdraw", 9500),
+        Ticket(7, True,  2, "transfer", 6000, target_account_id=5),
     ]
 
     workers = []
@@ -38,7 +39,7 @@ def main():
 
     for t in tickets:
         priority = 0 if t.is_vip else 1
-        extra = f" -> účet {t.target_account.account_id}" if t.request_type == "transfer" and t.target_account else ""
+        extra = f" -> účet {t.target_account_id}" if t.request_type == "transfer" and t.target_account_id else ""
         print('-' * 50)
         print(f"{'VIP ' if t.is_vip else ''}Požadavek {t.ticket_id}: {t.request_type.upper()}"
               f"{f' {t.amount}' if t.amount is not None else ''}{extra}")
@@ -52,6 +53,10 @@ def main():
 
     print("Všechny akce u banky byly zpracovány.\n")
     print_account_statements(accounts)
+
+    for acc in accounts:
+        print("DEBUG:", acc.account_id, acc.balance)
+
     save_accounts(accounts)
 
 

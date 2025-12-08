@@ -16,10 +16,15 @@ def operator_worker(shared_list, accounts, semaphore, suspicious_limit):
             semaphore.release()
             break
 
-        acc_idx = ticket.account.account_id - 1
+        acc_idx = ticket.account_id - 1
         acc = accounts[acc_idx]
         req = ticket.request_type
         amount = ticket.amount
+
+        target = None
+        if req == "transfer" and ticket.target_account_id is not None:
+            target_idx = ticket.target_account_id - 1
+            target = accounts[target_idx]
 
         header = f"{'VIP ' if priority == 0 else ''}Požadavek {ticket_id} | účet {acc.account_id} | Akce: {req.upper()}"
         print('\n' + '=' * 70)
@@ -58,7 +63,6 @@ def operator_worker(shared_list, accounts, semaphore, suspicious_limit):
             print(" >", note)
 
         elif req == "transfer":
-            target = ticket.target_account
             if target is None:
                 note = "Chyba: není zadaný cílový účet."
                 print(" >", note)
