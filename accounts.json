@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "balance": 5000,
+    "daily_limit": 4000,
+    "withdrawn_today": 0,
+    "history": []
+  },
+  {
+    "id": 2,
+    "balance": 12000,
+    "daily_limit": 10000,
+    "withdrawn_today": 0,
+    "history": []
+  },
+  {
+    "id": 3,
+    "balance": 8000,
+    "daily_limit": 5000,
+    "withdrawn_today": 0,
+    "history": []
+  },
+  {
+    "id": 4,
+    "balance": 20000,
+    "daily_limit": 15000,
+    "withdrawn_today": 0,
+    "history": []
+  },
+  {
+    "id": 5,
+    "balance": 3000,
+    "daily_limit": 3000,
+    "withdrawn_today": 0,
+    "history": []
+  }
+]
