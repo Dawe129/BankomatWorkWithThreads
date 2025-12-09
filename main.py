@@ -54,8 +54,9 @@ def main():
     print("Všechny akce u banky byly zpracovány.\n")
     print_account_statements(accounts)
 
+    # Opraveno: používáte dict, ne objekty Account
     for acc in accounts:
-        print("DEBUG:", acc.account_id, acc.balance)
+        print("DEBUG:", acc['account_id'], acc['balance'])
 
     save_accounts(accounts)
 

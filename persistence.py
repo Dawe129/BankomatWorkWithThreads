@@ -19,19 +19,25 @@ def load_accounts():
     return data
 
 def accounts_from_data(data, manager):
-    return manager.list([
-        Account(d["id"], d["balance"], d["daily_limit"], d["withdrawn_today"], d.get("history", []))
-        for d in data
-    ])
+    accounts = manager.list()
+    for d in data:
+        acc = manager.dict()
+        acc['account_id'] = d["id"]
+        acc['balance'] = d["balance"]
+        acc['daily_limit'] = d["daily_limit"]
+        acc['withdrawn_today'] = d["withdrawn_today"]
+        acc['history'] = manager.list(d.get("history", []))
+        accounts.append(acc)
+    return accounts
 
 def save_accounts(accounts):
     payload = []
     for acc in accounts:
         payload.append({
-            "id": acc.account_id,
-            "balance": acc.balance,
-            "daily_limit": acc.daily_limit,
-            "withdrawn_today": acc.withdrawn_today,
-            "history": acc.history,
+            "id": acc['account_id'],
+            "balance": acc['balance'],
+            "daily_limit": acc['daily_limit'],
+            "withdrawn_today": acc['withdrawn_today'],
+            "history": list(acc['history']),
         })
     ACCOUNTS_FILE.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")

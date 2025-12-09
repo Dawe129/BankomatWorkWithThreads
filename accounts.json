@@ -1,31 +1,89 @@
 [
   {
     "id": 1,
-    "balance": 5000,
+    "balance": 5500,
     "daily_limit": 4000,
-    "withdrawn_today": 0,
-    "history": []
+    "withdrawn_today": 1500,
+    "history": [
+      {
+        "time": "2025-12-09 11:37:35",
+        "action": "withdraw",
+        "amount": 1500,
+        "note": "Výběr 1500 Kč, dnes 1500 / 4000 Kč, nový zůstatek 3500 Kč"
+      },
+      {
+        "time": "2025-12-09 11:37:51",
+        "action": "deposit",
+        "amount": 2000,
+        "note": "Vklad 2000 Kč, nový zůstatek 5500 Kč"
+      }
+    ]
   },
   {
     "id": 2,
-    "balance": 12000,
+    "balance": 7000,
     "daily_limit": 10000,
-    "withdrawn_today": 0,
-    "history": []
+    "withdrawn_today": 8000,
+    "history": [
+      {
+        "time": "2025-12-09 11:37:37",
+        "action": "deposit",
+        "amount": 3000,
+        "note": "Vklad 3000 Kč, nový zůstatek 15000 Kč"
+      },
+      {
+        "time": "2025-12-09 11:37:40",
+        "action": "withdraw",
+        "amount": 8000,
+        "note": "Výběr 8000 Kč, dnes 8000 / 10000 Kč, nový zůstatek 7000 Kč"
+      },
+      {
+        "time": "2025-12-09 11:37:40",
+        "action": "alert",
+        "amount": 8000,
+        "note": "Podezřelá transakce – vysoká částka"
+      },
+      {
+        "time": "2025-12-09 11:37:46",
+        "action": "transfer",
+        "amount": 6000,
+        "note": "Překročení denního limitu při převodu. Dnes 8000 / 10000 Kč, požadavek 6000 Kč."
+      }
+    ]
   },
   {
     "id": 3,
     "balance": 8000,
     "daily_limit": 5000,
     "withdrawn_today": 0,
-    "history": []
+    "history": [
+      {
+        "time": "2025-12-09 11:37:49",
+        "action": "balance",
+        "amount": null,
+        "note": "Dotaz na zůstatek: 8000 Kč, dnes vybráno 0 / 5000 Kč"
+      }
+    ]
   },
   {
     "id": 4,
-    "balance": 20000,
+    "balance": 10500,
     "daily_limit": 15000,
-    "withdrawn_today": 0,
-    "history": []
+    "withdrawn_today": 9500,
+    "history": [
+      {
+        "time": "2025-12-09 11:37:43",
+        "action": "withdraw",
+        "amount": 9500,
+        "note": "Výběr 9500 Kč, dnes 9500 / 15000 Kč, nový zůstatek 10500 Kč"
+      },
+      {
+        "time": "2025-12-09 11:37:43",
+        "action": "alert",
+        "amount": 9500,
+        "note": "Podezřelá transakce – vysoká částka"
+      }
+    ]
   },
   {
     "id": 5,
