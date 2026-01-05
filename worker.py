@@ -16,6 +16,7 @@ def operator_worker(shared_list, accounts, semaphore, suspicious_limit):
             semaphore.release()
             break
 
+
         acc_idx = ticket.account_id - 1
         acc = accounts[acc_idx]
         req = ticket.request_type
